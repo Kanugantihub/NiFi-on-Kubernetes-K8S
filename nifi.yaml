@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: flow-4
+  name: flow-4
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: flow-4
+  template:
+    metadata:
+      labels:
+        run: flow-4
+    spec:
+      containers:
+      - image: apache/nifi:1.6.0
+        name: flow-4
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - mountPath: /opt/nifi/nifi-1.6.0/data-in
+          name: flow-4-volume
+      volumes:
+      - name: flow-4-volume
+        hostPath:
+          path: /NASA-Logs

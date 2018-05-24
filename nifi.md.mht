@@ -1,0 +1,53 @@
+From: "Saved by Internet Explorer 11"
+Subject: 
+Date: Thu, 24 May 2018 12:34:20 -0400
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file://C:\Users\naren\Downloads\NiFi (2).md
+X-MimeOLE: Produced By Microsoft MimeOLE
+
+<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "" ""><HTML><HEAD><META content=3D"IE=3D11.0000"=20
+http-equiv=3D"X-UA-Compatible">
+
+<META http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3Dwindows-1252">
+<META name=3D"GENERATOR" content=3D"MSHTML 11.00.10570.1001"></HEAD>
+<BODY>
+<PRE># Apache NiFi on Kubernetes=0A=
+=0A=
+## Install Kubernetes=0A=
+=0A=
+* Install kubernetes using minikube=0A=
+=0A=
+        brew install minikube=0A=
+ =0A=
+* Start minikube=0A=
+ =0A=
+        minikube start --memory=3D4096=0A=
+               =0A=
+* Mount folder to minikube, so that pods can have access to local storage=0A=
+        =0A=
+        minikube mount &lt;src-dir&gt;:/&lt;dst-dir&gt;=0A=
+=0A=
+* Let K8s use local docker env=0A=
+=0A=
+        eval $(minikube docker-env)=0A=
+                                  =0A=
+* Create default memory limits=0A=
+=0A=
+        kubectl create -f memory-defaults.yaml=0A=
+        =0A=
+* Create Apache NiFi Deployment=0A=
+=0A=
+        kubectl create -f nifi.yaml=0A=
+        =0A=
+* Create Apache NiFi Service=0A=
+=0A=
+        kubectl create -f nifi-svc.yaml=0A=
+=0A=
+* Run the following command to open Apache NiFi dashboard=0A=
+=0A=
+        minikube service flow-4                </PRE></BODY></HTML>
